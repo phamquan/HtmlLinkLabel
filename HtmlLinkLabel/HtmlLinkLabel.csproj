@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
+    <PackageReference Include="OpenGraph-Net" Version="3.1.0" />
+    <PackageReference Include="LiveXAML" Version="2.1.59" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />

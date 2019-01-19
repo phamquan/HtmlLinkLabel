@@ -2,9 +2,10 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     ios:Page.UseSafeArea="true"
     xmlns:converters="clr-namespace:HtmlLinkLabel.Converters"
+    xmlns:local="clr-namespace:HtmlLinkLabel"
     x:Class="HtmlLinkLabel.MainPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -14,17 +15,26 @@
     </ContentPage.Resources>
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Type your message: " />
-        <Editor 
+        <Label
+            Text="Type your message: " />
+        <Editor
             Keyboard="Chat"
             VerticalOptions="Fill"
-                HeightRequest="150" 
-                Text="{Binding MessageContent}" 
-                BackgroundColor="Silver" />
-        <Button Text="Send" Clicked="Handle_Clicked" />
+            HeightRequest="150"
+            Text="{Binding MessageContent}"
+            BackgroundColor="Silver" />
+        <Button
+            Text="Send"
+            Clicked="Handle_Clicked" />
         <Label
-            FormattedText="{Binding Html, Converter={StaticResource HtmlLabelConverter}}"
-            VerticalOptions="CenterAndExpand" />
-        
+            FormattedText="{Binding Html, Converter={StaticResource HtmlLabelConverter}}" />
+        <Frame
+            Margin="5"
+            Padding="0"
+            BorderColor="Gray"
+            HasShadow="false">
+            <local:BCWebThumbnailView
+                x:Name="thumbView" />
+        </Frame>
     </StackLayout>
 </ContentPage>
